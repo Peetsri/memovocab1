@@ -13,6 +13,10 @@
 <body>
 
   <style>
+    #intro {
+      background-image: url("https://mdbootstrap.com/img/new/fluid/city/018.jpg");
+      height: 100vh;
+    }
     .carousel-inner {
       display: block;
       height: 40rem;
@@ -58,14 +62,24 @@
                 </li>
             </ul>
             <form class="d-flex">
-              <a class="nav-link active" aria-current="page" href="{% url 'login' %}">Login</a>
-              <span class="cursor-pointer hide">Logout</span>
+                {%if user.is_authenticated %}
+                  <p>Hi {{ user.username }}!</p>
+                  <p>&nbsp;<a href="{% url 'login' %}">Log Out</a></p>
+                {% else %}
+                  <a class="nav-link active" aria-current="page" href="{% url 'login' %}">Login</a>
+                {% endif %}
             </form>
           </div>
         </div>
       </nav>
 
     </header>
+
+ <!-- Background image -->
+ <div id="intro" class="bg-image shadow-2-strong">
+  <div class="mask" style="background-color: rgba(0, 0, 0, 0.8);">
+  </div>
+</div>
 
 <!-- Vocal List View -->.
     {% load static %}

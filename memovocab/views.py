@@ -7,10 +7,9 @@ from django.http import HttpResponse
 class HomePageView(ListView):
     model = profile
     template_name = 'home.html'
-
     queryset = profile.objects.all()
     context_object_name = 'all_posts_list' # new
-
+  
 
 def changePageView(request):
     return render(request, 'changepassword.html')
